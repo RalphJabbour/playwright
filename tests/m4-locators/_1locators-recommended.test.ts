@@ -1,5 +1,17 @@
 import {test, expect} from '@playwright/test';
 
+
+
+test('Test with simple auto-retrying', async ({page}) => {
+    await page.goto('http://localhost:3000/');
+
+    await expect(page.getByTestId('location')).toContainText('New York');
+
+    await expect(page).toHaveTitle('Credit Association');
+    await expect(page).toHaveURL('http://localhost:3000');
+
+});
+
 test('Recommended built-in locators examples', async ({ page }) => {
     await page.goto('');
 
